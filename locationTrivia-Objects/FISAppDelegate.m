@@ -7,6 +7,8 @@
 //
 
 #import "FISAppDelegate.h"
+#import "FISLocation.h"
+#import "FISTrivia.h"
 
 @implementation FISAppDelegate
 
@@ -17,12 +19,25 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
-    NSDictionary *location =  @{@"name": @"Status of Liberty",
-                                @"longitude": @71.324,
-                                @"latitude": @-31.412};
-    NSLog(@"%@",[self shortenLocationNameWithLocation:location ToCount:3]);
+//    NSDictionary *location =  @{@"name": @"Status of Liberty",
+//                                @"longitude": @71.324,
+//                                @"latitude": @-31.412};
+//    NSLog(@"%@",[self shortenLocationNameWithLocation:location ToCount:3]);
+//
+//    NSLog(@"%@",[self createLocationWithName:@"Joe" Latitude:@32 Longitude:@43]);
 
-    NSLog(@"%@",[self createLocationWithName:@"Joe" Latitude:@32 Longitude:@43]);
+    NSLog(@"Is this running");
+    
+    FISLocation *testLocation = [[FISLocation alloc] initWithName:@"JimLand" andLatitude:@22 andLongitude:@55];
+    NSLog(@"The location nsmae is : %@", testLocation.name );
+    
+//    NSString *shortenTest = [testLocation shortenedNameToLength:2];
+//    NSLog(@"Did this work, shorten by 2 : %@", shortenTest);
+    
+    NSString *shortenTestWithNegative = [testLocation shortenedNameToLength:-5];
+    NSLog(@"Negative, what did this do: %@", shortenTestWithNegative);
+    
+    
     return YES;
 }
 
